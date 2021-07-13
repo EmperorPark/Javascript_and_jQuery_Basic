@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+    // form 태그 안의 input태그 사용시 :type 값으로만 검색이 가능
+    $(document).ready(function() {
+        $(":text").val('welcome');// value를 setting
+        console.log($(":text").val());// value를 getting
+        $(":password").css('border', '2px solid blue');
+        $(":button").css('background-color', 'green');
+        $(":file").css('border', '2px solid yellow');
+        $("[href]").css('color', 'orange').css('text-decoration', 'none');
+    });
+
+</script>
+</head>
+<body>
+    <form>
+        <input type="button" value="press"><br>
+        <input type="text"><br>
+        <input type="password"><br>
+        <input type="file"><br>
+    </form>
+    <a href="#">gogo</a>
+
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD Xhtml 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title> </title>
+    <style>
+        body{
+            font-size:9pt;
+        
+        }
+        .panel {
+            width:840px;
+            height:415px;
+            border:1px solid #ccc;
+        }
+        
+        .nav {
+            width:840px;
+            text-align:center;
+        }
+        button {
+            margin-top:5px;
+            padding:5px;
+        }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+    
+      // 전역 변수 선언 부분
+        var view = null;//이미지
+        var currentIndex = 1;//현재 이미지 인덱스
+        var playing = false;
+
+        // 시작 부분
+        $(document).ready(function(){            
+            init();// 전역 요소 초기화 함수 호출
+            initEvent();// 이벤트 초기화 함수 호출
+        });
+
+        // 전역 요소 초기화
+        function init(){
+            view = $("#view").attr("src") //초기 이미지 알아냄
+        }
+
+        // 이벤트 초기화 함수: 버튼 4개에서 이벤트가 발생하면 할 
+        function initEvent(){
+            $("#play").click(function() {
+                startAutoPlay();
+            });
+            $("#stop").click(function() {
+                stopAutoPlay();
+            });
+            $("#prev").click(function() {
+                prevImage();
+            });
+            $("#next").click(function() {
+                nextImage();
+            });
+        }
+
+        // 오토 플레이 실행
+        function startAutoPlay(){
+        	//0.1 초 간격으로 다음 이미지 보여주기
+			//setInterval(function(), 간격): 지정한 함수를 주어진 시간간격으로 반복 실행하는 함수
+            playing = setInterval(nextImage, 100);
+        }
+
+        // 오토 플레이 멈춤
+        function stopAutoPlay(){
+            clearInterval(playing);
+        }
+
+        // 다음 이미지: 이미지 인덱스 구해서 보여주기
+        function nextImage(){
+            if(currentIndex > 60) {
+                currentIndex = 1;
+            }
+            showImage(currentIndex++);
+        }
+
+        // 이전 이미지
+        function prevImage(){
+            if(currentIndex < 1) {
+                currentIndex = 60;
+            }
+            showImage(currentIndex--);
+        }
+
+        // index 번째 이미지 출력
+        function showImage(index){
+            $("#view").attr("src", "carimages/"+ index +".jpg");
+        }
+
+        console.log('03'.padStart(6,'0'));
+        
+        let soMany = 10;
+        console.log(`This is ${soMany} times easier!`);
+    </script>
+
+</head>
+
+<body>  
+    <div class="panel">
+        <img src="carimages/1.jpg" id="view">            
+    </div>
+    
+    <div class="nav">
+        <button id="play">play</button>
+        <button id="stop">stop</button>
+        <button id="prev">prev</button>
+        <button id="next">next</button>
+    </div>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+

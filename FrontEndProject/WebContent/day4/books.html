@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('button').click(function() {
+            $.ajax({
+                url: "books.xml",
+                dataType: "xml", // 서버에서 보내주는 데이터 타입
+                success: function(result) {
+                    processXML(result);
+                }
+            });
+        });
+    });
+
+    function processXML(xml) {
+        // xml: xml문서이므로 parsing이 가능
+        
+        var msg = "";
+        var books = $(xml).find('book'); // xml문서에서 book이라는 태그를 찾음
+        // var test = xml.getElementsByTagName("books");
+        // console.log(test);
+        // console.log(books[0]);
+        
+
+        $(books).each(function(index, item) {
+            var title = $(item).find('title').text();// <title>프로젝트 생존 전략</title>
+            var author = $(item).find('author').text();// <author>스티브 멕코넬</author>
+
+            msg = msg + title + ":" + author + "<br>";
+        });
+
+        $('div').html(msg);
+
+    }
+</script>
+</head>
+<body>
+    <h1>ajax xml test</h1>
+    <button>get data</button>
+    <hr>
+    <div></div>
+</body>
+</html>

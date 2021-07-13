@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+    // $(선택자).action()
+    // document(html)가 준비가 되면 jQuery를 그 이후에 실행하겠다는 의미
+    $(document).ready(function(){
+        $('h1').css('color', 'blue');// 모든 h1 태그를 찾아 글자색을 blue로 지정
+        $('h2').css('color', 'red');
+        $('h1').css('font-size', '30pt');
+
+        $('.orange').css('background-color', 'orange');
+        $('#green').css('background-color', 'green');
+
+        // method chaining
+        $('p').css('color', 'green')
+            .css('font-family', '궁서체')
+            .css('background-color', 'yellow');
+
+        $('h3').css({'color': 'red', 'font-size': '50pt'});
+
+    });
+
+</script>
+</head>
+<body>
+    <h1>This is first h1</h1>
+    <h1>This is second h1</h1>
+    <hr>
+
+    <h2>This is first h2</h2>
+    <h2>This is second h2</h2>
+    <h2>This is third h2</h2>
+    <hr>
+
+    <h1 class="orange">orange class</h1>
+    <h1 id="green">green id</h1>
+    <p>this is p 태그입니다.</p>
+    <h3>this is h3</h3>
+
+</body>
+</html>

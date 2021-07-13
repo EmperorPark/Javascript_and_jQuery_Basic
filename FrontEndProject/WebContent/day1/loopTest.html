@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var color = ['red', 'orange', 'blue']; //문자배열
+	for (var i = 0; i < color.length; i++) { //color.lenth: 배열의 길이
+		document.write(color[i] + " ");
+	}
+
+	document.write("<hr>");
+	
+	for (var m in color) {
+		document.write(color[m] + "<br>");
+	}
+
+	document.write("<hr>");
+	
+	//1. for(초기값;조건식;증감식)
+	for (var i = 0; i < 5; i++) {
+		//반복 작업
+		document.write(i + ".hello, script!<hr>");
+	}
+
+	//2. while
+	var j = 0;//초기값
+	while (j < 5) {//조건식
+		document.write(j + ".hi, script!<hr>");
+		j = j + 1;//j++ 증감식
+	}
+
+	//3. do~while
+	var k = 10;
+	do {
+		document.write(k + ".bye, script!<hr>");
+		k++;// 증감식
+	} while(k <= 5);//조건식
+</script>
+</head>
+<body>
+
+</body>
+</html>

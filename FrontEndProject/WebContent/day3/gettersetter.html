@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function() {
+        $("#b1").click(function() {
+            $('#val').text('<h1>hello, boy!!</h1>');//setter //.text() 함수는 html tag인식 불가
+        });
+        $("#b2").click(function() {
+            alert($('#val').text());//getter
+        });
+        
+        // div, span, p: elemenObj.value = 'aaa' (x), elemenObj.innerHTML = '<h1>aaa</h1>' (o)
+        // <input type="text">: inputObj.value = 'aaa'(O)
+        $("#b3").click(function() {
+            $('#val').html('<h1>hello, boy!!</h1>');//setter
+        });
+        $("#b4").click(function() {
+            alert($('#val').html());//getter
+        });
+        
+        $("#b5").click(function() {
+            $('#msg').val('<h1>lee</h1>');//setter //.val() 함수는 html tag인식 불가
+        });
+        $("#b6").click(function() {
+            alert($('#msg').val());//getter
+        });
+    });
+</script>
+</head>
+<body>
+    <button id="b1">set text</button>
+    <button id="b2">get text</button>
+
+    <button id="b3">set html</button>
+    <button id="b4">get html</button>
+
+    <button id="b5">set value</button>
+    <button id="b6">get value</button>
+    <hr>
+
+    <div id="val"><h2>this is h2</h2></div>
+    <input type="text" id="msg" value="kim">
+
+</body>
+</html>

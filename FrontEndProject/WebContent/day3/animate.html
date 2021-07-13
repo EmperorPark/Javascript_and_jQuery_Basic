@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function() {
+        $('button').click(function() {
+            var div = $('div');
+            div.animate({height:'300px', opacity:0.4}, "slow");
+            div.animate({width: '300px', opacity:0.8}, "slow");
+            div.animate({height: '100px', opacity:0.4}, "slow");
+            div.animate({width: '100px', opacity:0.8}, "slow");
+        });
+    });
+
+</script>
+</head>
+<body>
+    <button>start animation</button>
+    <hr>
+    <div style="height: 100px; width: 100px; background-color: #98bf21;"></div>
+</body>
+</html>

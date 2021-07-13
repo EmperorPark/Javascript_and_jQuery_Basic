@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	// 사용자 정의 함수
+	// 1. 선언적 함수 - 함수의 이름이 있는 경우
+	// 함수의 정의
+	function go() {
+		document.write("hello, function!<br>");
+	}
+	
+	function add(num) {
+		document.write(++num + "<br>");
+		//document.write(num++ + "<br>");
+	}
+
+	//function hello(name, num, age) {
+	function hello(name) {
+		var tmp = "hello," + name;
+		return tmp; // 함수의 작업 후 결과물
+	}
+
+	var result = hello('tommy');
+	document.write(result + "<br>");
+
+	document.write(hello('kim') + "<br>");
+
+	add(100);
+	
+	// 함수의 사용. 함수호출
+	go();
+	go();
+	go();
+	
+	
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

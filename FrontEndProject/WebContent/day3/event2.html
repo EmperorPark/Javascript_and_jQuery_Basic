@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function() {
+        //$('button').click();
+
+        // on: 이벤트 등록
+        $('button').on('click', function() {
+            var h1 = $('<h1>hello, jquery</h1>');// element를 생성. createElement()와 동일
+            $('div').append(h1);// 
+        });
+        
+        // var div = $('<div></div>');
+        // $('body').append(div);
+        // $(staticParent).on(eventName, dynamicChildSelector, eventHandeler)
+        // static: HTML문서를 처음 로딩할 때 부터 존재하는 대상
+        // dynamic: static+HTML문서를 처음 로딩할 때는 존재하지 않는 대상
+        // 다만 강의의 설명과 다르게 처음 로딩시 존재여부와 관계없이 실행이 된다.
+        $('div').on('click', 'h1', function() {
+            alert('gogogo~'+ $(this).text());
+        });
+        
+        //$('button').on('mouseenter', function() {});
+
+        // off: 이벤트 해제
+        //$('button').off('click');
+    });
+
+</script>
+</head>
+<body>
+    <button>add</button>
+    <div>
+        <!-- <h1></h1> -->
+    </div>
+</body>
+</html>

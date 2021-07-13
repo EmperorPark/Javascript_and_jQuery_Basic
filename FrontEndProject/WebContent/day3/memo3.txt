@@ -1,0 +1,15 @@
+JavaScript 객체
+{}
+JavaScript Object Notation -> JSON
+Key, Value Pair
+
+
+$("tr:even") 에서 even(odd)은 index기준(0부터 시작)이므로, 화면 적용시 눈에 보여지는 건 0번부터 시작하는 첫번째(홀수)에 계속 +2 한 엘리먼트 항목들에 적용된다.
+
+// $(staticParent).on(eventName, dynamicChildSelector, eventHandeler)
+        // static: HTML문서를 처음 로딩할 때 부터 존재하는 대상
+        // dynamic: static+HTML문서를 처음 로딩할 때는 존재하지 않는 대상
+        // 다만 강의의 설명과 다르게 처음 로딩시 존재여부와 관계없이 실행이 된다.
+
+$('div').append(v1, v2, v3); // append 부모에 자식을 추가
+$('<hr/>').appendTo('div'); // 자식을 부모에 추가

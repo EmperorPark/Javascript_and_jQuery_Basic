@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+    function process() {
+        // 사용자가 id, password를 제대로 입력 했는지 check
+        // 1. 입력한 id값 알아오기
+        var id = document.getElementById("uid");// <input type="text" id="uid"/>
+        var idvalue = id.value;
+        if(idvalue === ""){
+            alert('id를 입력해 주세요!');
+            return;// 프로그램 실행을 멈춤
+        }
+
+        // 2. 입력한 password값 알아오기
+        var pw = document.getElementById("upw");
+        var pwvalue = pw.value;
+        if(pwvalue === ""){
+            alert('password를 입력해 주세요!');
+            return;
+        }
+        
+        // 3. 서버로 데이터 전송
+        var form = document.getElementById("f");
+        form.submit();//form을 서버로 전송
+
+
+    }
+
+</script>
+</head>
+<body>
+    <h1>Login</h1>
+    <!-- 사용자가 입력한 값을 서버로 보낼때 사용되는 태그 -->
+    <form action="welcome.jsp" id="f">
+        ID: <input type="text" id="uid" /><br>
+        PW: <input type="password" id="upw" /><br>
+        <!-- <button onclick="process()">로그인</button> -->
+        <input type="button" onclick="process()" value="로그인"/>
+    </form>
+
+</body>
+</html>

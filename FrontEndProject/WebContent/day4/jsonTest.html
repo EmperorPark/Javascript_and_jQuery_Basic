@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function() {
+        $('button:first').click(function() {
+            $.ajax({
+                url: "jsonarray.jsp",
+                success: function(result) {
+                    var json = eval("(" + result + ")");
+                    var str = "";
+                    for (var i = 0; i < json.length; i++) {
+                        str = str + json[i] + "<br>";
+                    }
+
+                    $("#arrayDisplay").html(str);
+                }
+            });
+        });
+
+        $('button:eq(1)').click(function() {
+            var code = $("#code").val(); // 사용자가 입력한 국가 코드
+            $.ajax({
+                url: "jsoncollection.jsp",
+                dataType: 'json', // 서버에서 오는 data가 json 형식이라고 명시해 eval()을 사용하지 않고 받는다. // 서버쪽의 json 데이터가 ""로 되어있어야한다?
+                success: function(json) {
+                    var country = json[code];// 키(code)에 해당하는 값을 찾음
+                    //if(country !== undefined) { // 엄격한 필터
+                    if(country != null) {
+                        $("#collectionDisplay").html(country);
+                    } else {
+                        $("#collectionDisplay").html("no data!!!");
+                    }
+
+                    $("#code").val('');
+                },
+                error : function(xhr,status,error) {
+                    console.error(status);
+                    console.error(error);
+                }
+            });
+        });
+
+        $('button:last').click(function() {
+            var id = $("#id").val();
+            $.ajax({
+                url: "jsoncollection2.jsp",
+                dataType: 'json',
+                success: function(json) {
+                    var person = json[id];
+                    if(person != null) {
+                        $("#collectionDisplay2").html(person["name"] + "<br>" + person["address"] + "<br>" + person["tel"] + "<br>");
+                    } else {
+                        $("#collectionDisplay2").html("no data!!!");
+                    }
+
+                    $("#code").val('');
+                }
+            });
+        });
+    });
+</script>
+</head>
+<body>
+    <h1>json array data</h1>
+    <button>array data</button><br>
+    <div id="arrayDisplay"></div>
+    <hr>
+
+    <h1>json collection data</h1>
+    code: <input type="text" id="code">
+    <button>collection data</button><br>
+    <div id="collectionDisplay"></div>
+    <hr>
+
+    <h1>json collection data 2</h1>
+    id: <input type="text" id="id">
+    <button>collection data 2</button><br>
+    <div id="collectionDisplay2"></div>
+    <hr>
+
+</body>
+</html>

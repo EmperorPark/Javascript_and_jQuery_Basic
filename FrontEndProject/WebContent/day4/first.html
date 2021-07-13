@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+    var xhr = null;
+
+    // 1. ajax 통신에 필요한 xhr객체를 생성하는 함수
+    function getXHR() {
+        xhr = new XMLHttpRequest();
+    }
+
+    // 2. xhr 객체를 가지고 서버로 요청을 보내는 함수
+    function getData() {
+        getXHR();
+        xhr.open('get', "first.jsp", true);// 비동기 요청을 보내기 위한 준비
+        xhr.onreadystatechange = callback;// readyState 값이 바뀔때마다 호출할 콜백함수 // 괄호가 없으므로 getData()함수 내에서 호출하라는 것이 아니라 이름만 등록
+        xhr.send(null);// 비동기 요청 전송. get 방식으로 요청할 때는 send함수의 parameter가 null임.
+    }
+
+    // 2. xhr 객체를 가지고 서버로 요청을 보내는 함수
+    function postData() {
+        getXHR();
+        xhr.open('post', "first.jsp", true);// 비동기 요청을 보내기 위한 준비
+        xhr.onreadystatechange = callback;// readyState 값이 바뀔때마다 호출할 콜백함수 // 괄호가 없으므로 postData()함수 내에서 호출하라는 것이 아니라 이름만 등록
+        xhr.send();// 비동기 요청 전송. post 방식으로 요청할 때는 send함수의 parameter를 비움.
+    }
+
+    // 3. readyState 값이 바뀔때마다 반복해서 호출하는 함수
+    // 3. 서버에서 결과가 도착하면 처리하는 함수
+    function callback() {
+        //console.log(xhr.readyState + "|" + xhr.status);
+        if(xhr.readyState === 4 && xhr.status === 200) {
+            var re = document.getElementById("result");
+            re.value += xhr.responseText;// 서버가 보내준 결과를 텍스트 형식으로 받겠다. // 서버가 보내준 데이터는 xml이나 text형식으로 받을 수 있다.
+        } else {
+        	//이미지 표시
+        }
+    }
+
+</script>
+</head>
+<body>
+    <h1>ajax test</h1>
+    <button onclick="getData()">get data</button>
+    <button onclick="postData()">post data</button>
+    <hr>
+    <textarea rows="10" cols="30" id="result"></textarea>
+</body>
+</html>

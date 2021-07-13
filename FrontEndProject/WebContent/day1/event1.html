@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+    function go(code) {
+        if(code === 1) {
+            alert("click!!!");
+        } else if (code === 2) {
+            alert("mouse over!!!");
+        } else if (code === 3) {
+            open("http://www.daum.net", "","width=300px, height=600px, scrollbars=yes");//popup창
+        } else if (code === 4) {
+            print();
+        } else {
+            close();
+        }
+    }
+</script>
+</head>
+<body>
+    <h1>event test</h1>
+    <button onclick="go(1)">click</button>
+    <button onmouseover="go(2)">mouseover</button>
+    <button onclick="go(3)">open</button>
+    <button onclick="go(4)">print</button>
+    <button onclick="go(5)">close</button>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function process(that){
+		//
+		var val = that.id;// 12345서울시 서초구
+		var part1 = val.substring(0,5); // val의 앞 5자리 숫자. 우편번호. index가 0~4까지 선택됨
+		var part2 = val.substring(5);// 우편번호인 5자리 제외한 주소부분. index가 5~끝까지 선택됨
+		
+		//part1, part2를 메인창에 넣기
+		var a1 = opener.document.getElementById("addr1");
+		var a2 = opener.document.getElementById("addr2");
+		
+		a1.value = part1
+		a2.value = part2
+
+		close();
+	}
+
+
+</script>
+
+</head>
+<body>
+<h1>주소 찾기</h1>
+<a href="#" id="12345서울시 서초구" onclick="process(this)">12345 서울시 서초구</a><br>
+<a href="#" id="12367서울시 종로구" onclick="process(this)">12367 서울시 종로구</a><br>
+<a href="#" id="14560서울시 영등포구" onclick="process(this)">14560 서울시 영등포구</a><br>
+
+</body>
+</html>
+
+
+
+

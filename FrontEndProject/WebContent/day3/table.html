@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function (){
+		// 짝수행은 배경색을 green, 홀수 행은 yellow
+		// 제목 줄, 마지막 줄 - gray
+		$('table#m tr:even').css("background-color", "yellow").css("color", 'blue');
+		$('table#m tr:odd').css("background-color", "green").css("color", 'white');
+		$('table#m tr:first').css("background-color", "gray");
+		$('table#m tr:last').css("background-color", "gray");
+		$('table#m tr:eq(3)').css("background-color", "cyan");
+
+	});
+
+</script>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+
+<h1> 표 그리기</h1>
+	<table id = "m" border="10">
+		<tr> <!-- table row -->
+			<th>번호</th> <!-- table header -->
+			<th>이름</th>
+			<th>주소</th>
+		</tr>
+		
+		<tr>
+			<td>100</td><!-- table data -->
+			<td>tommy jeans</td>
+			<td>seattle</td>
+		</tr>
+		
+		<tr>
+			<td>200</td>
+			<td>harry potter</td>
+			<td>london</td>
+		</tr>
+		
+		<tr>
+			<td>300</td>
+			<td>mary jane</td>
+			<td>tokyo</td>
+		</tr>
+		
+		<tr>
+			<td>400</td>
+			<td>mary kim</td>
+			<td>tokyo</td>
+		</tr>
+		
+		<tr>
+			<td>500</td>
+			<td>mimi jane</td>
+			<td>london</td>
+		</tr>
+		
+		<tr>
+			<td>600</td>
+			<td>mary dayon</td>
+			<td>tokyo</td>
+		</tr>
+		
+		<tr>
+			<td>총인원</td>
+			<td colspan="2">6명</td>
+		</tr>
+		
+	</table>
+
+	
+	
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function() {
+        $('button').click(function() {
+            // jquery에서 element 생성해 사용하는 방법
+            var v1 = $('<h1>this is v1</h1>');
+            var v2 = "<h1>this is v2</h1>";
+            
+            var v3 = document.createElement('h1');// <h1></h1>
+            v3.innerHTML = 'this is v3';
+
+            $('div').append(v1, v2, v3); // append 부모에 자식을 추가
+            $('<hr/>').appendTo('div'); // 자식을 부모에 추가
+
+            // <img src="a.jpg"/>
+            var img = $('<img/>'); // 빈 이미지 객체 <img></img>
+            img.attr('src', './image/1.jpg');
+            $('div').append(img);
+
+        });
+    });
+</script>
+</head>
+<body>
+    <button>add</button>
+    <hr>
+    <div></div>
+</body>
+</html>

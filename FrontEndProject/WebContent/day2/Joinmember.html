@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var flag = false;//전역변수
+
+	function agreeDoc() {
+		alert("약관에 동의 하셔야 합니다.");
+		var ton = document.getElementById("on");
+		ton.checked=true;// 선택된 상태로 바꿔줌
+	}
+
+	function printDoc() {
+		print();
+	}
+
+	function dupCheck() {
+		var uid = document.getElementById("id");
+		var sp = document.getElementById("msg");
+
+		if(uid.value === "tommy") { // 사용 중
+			sp.style.color = "red";// javascript에서 css 조정
+			sp.innerHTML = '사용 중인 아이디 입니다.';//innerHTML: span tag안에 글자 넣기
+			uid.value = "" // value <input type="text"/> 안에 글자 넣기
+		} else { // 사용 가능
+			sp.style.color = "blue";// javascript에서 css 조정
+			sp.innerHTML = '사용 가능한 아이디 입니다.';//innerHTML: span tag안에 글자 넣기
+		}
+	}
+
+	function lengthCheck() {//6~10
+		var ps = document.getElementById("pass");
+		if(ps.value.length < 6 || ps.value.length > 10) {
+			alert("비밀번호는 6~10글자 사이 이어야 합니다.");
+			ps.value = "";
+		}
+	}
+
+	function moveNext() {
+		//idnum1칸에 6글자가 입력 되는 체크해서 idnum2칸으로 커서 이동
+		var inum1 = document.getElementById("idnum1");
+		var inum2 = document.getElementById("idnum2");
+		if(inum1.value.length >= 6) {
+			inum2.focus();//포커스 이동됨
+		}
+	}
+
+	function clearText() {
+		var textAr = document.getElementById("ta");
+		if(flag === false){
+			textAr.value = "";
+			flag = true;
+		}
+		
+	}
+
+	function findAddress() {
+		open("findAddress.html", "", "width=400px, height=400px, scrollbars=yes");
+	}
+
+	function totalCheck() {
+		var form = document.getElementById("f1");
+        form.action = "welcome.jsp"
+		form.submit();//form을 서버로 전송
+	}
+
+</script>
+</head>
+<body><h2>회원 정보</h2>
+		
+		<form name="f1" id="f1">		
+	
+			<input type="radio" name="agree" id="on" checked="checked">약관에 동의 합니다. &nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="radio" name="agree" id="off" onclick="agreeDoc()" />약관에 동의 하지 않습니다.
+			<input type=button  value="약관인쇄" onclick="printDoc()" /><br><br>
+			
+			아이디:<input type="text" id="id">
+			<input type=button name=dupcheck value="중복체크" onclick="dupCheck()" >
+			<span id="msg"></span>
+			<br><br>
+			패스워드: 	<input type="password" name="pw" maxlegth="10" id="pass" onblur="lengthCheck()">(최소 6글자이상 10글자 이내)<br><br>
+			주민번호: <input type=text id=idnum1 onkeyup="moveNext()" maxlegth="6">-<input type=password id=idnum2 maxlegth="7"><br><br>
+			주소: <input type="text" id="addr1" disabled />-<input type="text" id="addr2" disabled />
+			<input type="button" value="주소찾기" onclick="findAddress()"><br><br>
+
+			<textarea rows=10 cols= 80 id="ta" onfocus="clearText()">남기실 말씀...</textarea>
+			
+			<br>
+			
+			<input type=button name=submitbutton value="회원가입" onclick="totalCheck()">
+			<input type=reset name=submitbutton value="원래대로" >
+			<br><br>		
+		</form>
+		
+		</body>
+		</html>
+	
+
+		
+		
+		
+		
+		

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('h1').each(function(index, item) {
+            if(index % 2 === 0) {
+                $(item).css('color', 'blue');
+                $(item).css('font-family', '궁서체');
+                $(item).css('font-size', '30pt');
+            }
+            
+        });
+    });
+</script>
+</head>
+<body>
+    <h1>this is h1 tag</h1>
+    <h1>this is h1 tag</h1>
+    <h1>this is h1 tag</h1>
+    <h1>this is h1 tag</h1>
+    <h1>this is h1 tag</h1>
+    <h1>this is h1 tag</h1>
+    <h1>this is h1 tag</h1>
+</body>
+</html>

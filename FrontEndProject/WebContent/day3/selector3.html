@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('ul li.green').css('color', 'green');
+        $('ul li#pink').css('color', 'pink');
+        $('div ul li').css('color', 'blue');
+        $('div ul li:last').css('color', 'cyan');
+        $('div ul li:eq(1)').css('color', 'magenta');// index기준(0부터 시작)
+    });
+</script>
+</head>
+<body>
+    <div>
+        <!-- <ol></ol> ordered list -->
+        <ul> <!-- unordered list -->
+            <li>coffee</li> <!-- list item -->
+            <li>milk</li> <!-- list item -->
+            <li>tea</li> <!-- list item -->
+            <li>juice</li> <!-- list item -->
+        </ul>
+    </div>
+    <hr>
+    <ul> <!-- unordered list -->
+        <li class="green">coffee</li> <!-- list item -->
+        <li id="pink">milk</li> <!-- list item -->
+        <li>tea</li> <!-- list item -->
+        <li>juice</li> <!-- list item -->
+    </ul>
+</body>
+</html>

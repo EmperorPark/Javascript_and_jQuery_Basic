@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	div {
+		width: 300px;
+		height: 300px;
+		border: 2px dashed red;
+		overflow: auto;
+	}
+	
+	/* .: 클래스 */
+	.orange { 
+		border: 2px solid orange;
+	}
+
+	.blue { 
+		border: 2px solid blue;
+	}
+</style>
+<script type="text/javascript">
+	var cnt = 0;
+	function delNode(x) {
+		//눌려진 h1을 삭제
+		var p = x.parentNode;
+		p.removeChild(x);
+	}
+
+	function addNode() {
+		// <h1 onclick="delNode(this)">hello dom</h1>
+		// 1. Node 생성
+		var h1 = document.createElement("h1");//<h1></h1>
+		var txt = document.createTextNode("hello dom - " + ++cnt);//hello dom
+		h1.setAttribute("onclick", "delNode(this)");
+		h1.appendChild(txt);//h1의 자식으로 txt를 붙임. <h1>hello dom</h1>
+		
+		// 2. Node 생성. <a herf="#">gogo</a>
+		// A. setAttribute("속성명", "속성값");
+		var a = document.createElement("a");//<a></a>
+		var txt2 = document.createTextNode("gogo");//gogo
+		a.setAttribute("href", "#");
+		a.appendChild(txt2);
+
+		// 3. div의 자식으로 h1을 붙임
+		var re = document.getElementById("result");//div
+		re.appendChild(h1);
+		//re.appendChild(a);
+	}
+
+	/*
+		<div style="width=280px; height=30px; boder:none;">
+			<input type="text">
+			<input type="button" value="delete" onclick="delNode2()">
+		</div>
+	*/
+	function addNode2() {
+		// 1. node 생성
+		// 2. 생성된 노드를 div에 붙이기
+		var newDiv = document.createElement("div");
+		newDiv.setAttribute("style", "width:280px; height:30px; border:none;");
+		var in1 = document.createElement("input");
+		in1.setAttribute("type", "text");
+		var in2 = document.createElement("input");
+		in2.setAttribute("type", "button");
+		in2.setAttribute("value", "button");
+		in2.setAttribute("onclick", "delNode2(this.parentNode)");
+
+		newDiv.appendChild(in1);
+		newDiv.appendChild(in2);
+
+		var re = document.getElementById("result");//div
+		re.appendChild(newDiv);
+
+	}
+
+	function delNode2(x) {
+		
+		var p = x.parentNode;
+		p.removeChild(x);
+	}
+</script>
+</head>
+<body>
+	<h1>DOM Test</h1>
+	<button onclick="addNode()">add</button>
+	<button onclick="addNode2()">add2</button>
+	<hr>
+	<div id="result"></div>
+	<div id="result2" class="orange"></div>
+	<div class="blue"></div>
+</body>
+</html>

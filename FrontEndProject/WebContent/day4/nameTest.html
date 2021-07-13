@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Ajax test</title>
+
+<style type="text/css">
+div{
+	display: inline-block;
+	overflow: auto;
+}
+div.short{
+	border: 2px solid blue;
+	width: 250px;
+	height: 250px;	
+}
+div.long{
+	border: 2px solid red;
+	width: 250px;
+	height: 250px;	
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	
+<script type="text/javascript">
+	// 입력한 이름의 길이가 짧으면(5이하) 파란색 div에, 길면(6이상) 빨간색 div에 이름을 넣어주세요.
+	// name을 서버로 보내면 서버에서 체크 후 true, false를 리턴해 줌
+	$(function () {
+		$('button').click(function () {
+			var name = $('#name').val();
+			$.ajax({
+				url: "nameTest.jsp",
+				data: {"name":name},
+				success: function(result) {
+					console.log(result, result.length, result.trim(), result.trim().length, Boolean(result), Boolean(result.trim()));
+					//if(Boolean(result.trim()) ){
+					if(result.trim() === "true"){
+						$("#longNames").html($("#longNames").html() + name + "<br>");
+					} else {
+						$("#shortNames").html($("#shortNames").html() + name + "<br>");
+					}
+					$("#name").val('');
+				}
+			});
+		});
+	});
+</script>
+</head>
+<body>
+<p>Please introduce yourself by entering your name</p>
+<input type='text' size='24' id='name'></input>&nbsp;
+<button>Submit</button><br><br>
+
+<div id='shortNames' class='short'></div>
+<div id='longNames' class='long'></div>
+
+
+</body>
+</html>

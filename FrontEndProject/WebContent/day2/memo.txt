@@ -1,0 +1,16 @@
+DOM - Document Object Model
+    Document: HTML, XML, etc...
+    태그를 객체로 다룸
+DOM : HTML, XML 문서를 표현하고 조작하는 표준적인 방법
+동적으로 문서의 수정, 삭제, 삽입, 조회 가능(조작기능)
+태그 내부의 텍스트는 태그의 자식으로 취급한다.
+속성은 태그에 딸려서 별도 취급(태그와 부모/자식 관계 X, 말그대로 그냥 태그의 속성)
+DOM Tree의 구성은 Node의 모임(Element Node(tag), Text Node, 속성(attribute) Node, Root Element Node(일반적으로 <HTML></HTML>), Document(/))
+    https://www.w3schools.com/whatis/whatis_htmldom.asp
+
+<span></span> 태그 영역 지정에(잡아 놓을 때) 사용(ex. 나중에 동적으로 무언가 띄워준다던가)
+<div></div>도 영역지정인데 줄바꿈에 대한 차이가 있다.
+
+html 태그 내부의 이벤트 헨들러에서 this는 자기 자신의 Element전체이다.
+
+css 선택자

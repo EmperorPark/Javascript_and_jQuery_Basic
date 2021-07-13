@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+    /* tern -> 이클립스 자동완성 툴
+    1. max(): 두개의 숫자를 입력 받아 큰수를 리턴
+    2. getArea(): 반지름 r을 입력 받아 원 면적을 계산해 리턴
+    3. reverse(): boolean 값 하나를 입력 받아 그 반대의 값을 리턴
+    4. sum(): 정수형 배열을 입력 받아 그 안의 모든 값을 더한 합을 계산해 출력
+    5. loopString(): 문자열(msg)과 숫자(cnt) 하나 씩을 입력 받아 msg를 cnt번 만큼 반복 출력
+    */
+
+    document.write(max(200,40) + "<br>"); // 선언적 함수의 경우 함수의 hoisting 가능(선언보다 앞에서 쓸 수 있다.)
+    function max(num1, num2) {
+        return num1 > num2 ? num1 : num2
+    }
+    
+    document.write(getArea(5) + "<br>");
+    function getArea(r) {
+        return Math.PI * Math.pow(r, 2)
+    }
+    
+    document.write(reverse(true) + "<br>");
+    function reverse(boolVal) {
+        return !boolVal
+    }
+    
+    sum([1,4,6]);
+    function sum(intArr) {
+        var sumVal = 0;
+        for (let i = 0; i < intArr.length; i++) {
+            sumVal += intArr[i];//val = val + arr[i];
+        }
+
+        return document.write(sumVal + "<br>");
+    }
+    
+    loopString("test msg",5);
+    function loopString(msg, cnt) {
+        
+        for (let i = 0; i < cnt; i++) {
+            document.write(msg + "<br>");
+        }
+
+    }
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

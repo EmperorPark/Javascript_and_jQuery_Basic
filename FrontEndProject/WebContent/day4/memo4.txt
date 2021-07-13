@@ -1,0 +1,36 @@
+json 콜렉션 형식(딕셔너리, 해시맵 같은)
+key는 string
+
+evel("("+ jsonString +")") 함수
+json string -> json Object
+
+
+XMLHttpRequest 생성: readyState -> 0
+XMLHttpRequest open 호출: readyState -> 1
+XMLHttpRequest send 호출: readyState -> 2
+XMLHttpRequest 서버에서 데이터가 오는중: readyState -> 3
+XMLHttpRequest 데이터 결과(완료): readyState -> 4
+
+https://www.w3schools.com/jquery/ajax_ajax.asp
+jQuery ajax 콜백처리
+success: function(result,status,xhr) {}
+success: function(result,status) {}
+success: function(result) {}
+에러도 위와 동일하게 쓰고싶은것만 쓰기 가능
+error(xhr,status,error)	{}
+
+jQuery ajax data
+data: {보낼데이터:val, ...} // Client => Server data(request)
+dataType: The data type expected of the server response. // Server => Client type(response)
+
+javascript에서 서버에 데이터 요청시 true, flase가 오는 경우 string parse에 주의해야 한다.(공백(trim()), 변환)
+//주의1
+var isBoolean = 'fasle';
+var isTrueBoolean = Boolean(isBoolean); // == true
+//주의2
+var isBoolean = 'fasle';
+var isTrueBoolean = !!isBoolean; // == true
+//따라서 이걸 사용한다
+var isBoolean = 'false';
+var isFalseBoolean = (isBoolean==='true');
+출처: https://dev-timero.tistory.com/96 [Philographer]

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+// 익명함수: 이름이 없는 함수
+f2();// 이름 있는 함수. hoistion O
+//f1(); // 익명 함수. hoisting X // 오류발생
+
+//1. 변수에 함수를 저장
+var num = 111;
+var f1 = function () {
+    console.log("hello");
+}
+
+f1();
+console.log(typeof f1);
+
+function f2 () {
+	console.log("welcome");
+}
+
+// 2. 함수를 파라메터로 사용 가능
+function funtest(some) {
+	some();//함수로 사용
+}
+
+funtest(f1);
+funtest(f2);
+funtest(function() {
+	console.log("gogo");
+});
+
+// 3.함수를 리턴값으로 활용
+function funtest2() {
+	return function () {
+		console.log("stop!!!");
+	}
+}
+
+var re = funtest2();
+re();
+
+funtest2()();
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

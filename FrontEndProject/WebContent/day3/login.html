@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $(":button").click(function () {
+            // 사용자가 id, password를 제대로 입력 했는지 check
+            // 1. 입력한 id값 알아오기
+            var idval = $("#uid").val()
+            if(idval === ""){
+                alert('id를 입력해 주세요!');
+                return;// 프로그램 실행을 멈춤
+            }
+
+            // 2. 입력한 password값 알아오기
+            var pwval = $("#upw").val()
+            if(pwval === ""){
+                alert('password를 입력해 주세요!');
+                return;
+            }
+            
+            if(idval === 'tommy' && pwval === "123") {
+                $("#f").submit();
+            } else {
+                alert('id, pass를 확인해 주세요!');
+                $('#uid').val('');
+                $('#upw').val('');
+            }
+            
+
+        })
+    });
+
+</script>
+</head>
+<body>
+    <h1>Login</h1>
+    <!-- 사용자가 입력한 값을 서버로 보낼때 사용되는 태그 -->
+    <form action="welcome.jsp" id="f">
+        ID: <input type="text" id="uid" /><br>
+        PW: <input type="password" id="upw" /><br>
+        <!-- <button onclick="process()">로그인</button> -->
+        <input type="button" value="로그인"/>
+    </form>
+
+</body>
+</html>

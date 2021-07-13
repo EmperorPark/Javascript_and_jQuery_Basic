@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+    // 사용자 정의 플러그인 만들기
+    $.fn.myplugin = function() {
+        $(this).css('color','orange');
+        $(this).css('background','gray');
+        
+        return $(this);
+    }
+
+    $.fn.showMsg = function(eventType, msg) {
+        $(this).on(eventType, function() {
+            alert(msg);
+        });
+
+        return $(this);
+    }
+
+    $(function(){
+        $('h1').myplugin().css('font-family', '궁서체');
+        $('h2').showMsg('click', 'bye~~~');
+    });
+</script>
+</head>
+<body>
+    <h1>this is h1</h1>
+    <h1>this is h1</h1>
+    <h1>this is h1</h1>
+    <h2>this is h2</h2>
+    <h2>this is h2</h2>
+</body>
+</html>
